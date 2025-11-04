@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   squid:
-    image: sameersbn/squid:4.17.1-2
+    image: sameersbn/squid:latest
     container_name: squid-proxy
     ports:
       - "3128:3128"
