@@ -1,15 +1,13 @@
 version: "3.8"
 services:
   squid:
-    image: ubuntu/squid:latest
+    build: .
     container_name: squid-proxy
     ports:
       - "3128:3128"
     volumes:
-      - ./squid-conf:/etc/squid:ro
       - squid-cache:/var/spool/squid
     restart: unless-stopped
-    entrypoint: ["/bin/sh", "-c", "ls -la /etc/squid/ && cat /etc/squid/squid.conf && squid -N -f /etc/squid/squid.conf"]
 
 volumes:
   squid-cache:
