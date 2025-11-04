@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  squid:
+    image: sameersbn/squid:4.17.1-2
+    container_name: squid-proxy
+    ports:
+      - "3128:3128"
+    volumes:
+      - ./squid.conf:/etc/squid/squid.conf:ro
+      - squid-cache:/var/spool/squid
+    restart: unless-stopped
+
+volumes:
+  squid-cache:
